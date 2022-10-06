@@ -1,0 +1,18 @@
+[package]
+name = "rdone"
+version = "0.1.0"
+edition = "2021"
+
+[profile.release]
+opt-level = 'z'
+lto = true
+codegen-units = 1
+panic = 'abort'
+strip = true
+
+[dependencies]
+chrono = "0.4.22"
+home = "0.5.3"
+serde = "1.0.145"
+serde_derive = "1.0.145"
+toml = "0.5.9"
