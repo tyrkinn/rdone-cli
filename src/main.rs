@@ -18,7 +18,7 @@ fn read_config(file_path: &str) -> DoneConf {
     let mut buf: String = String::new();
     file.read_to_string(&mut buf).unwrap();
     let config_in_toml: DoneConf = toml::from_str(&buf).unwrap();
-    return config_in_toml;
+    config_in_toml
 }
 
 fn start_task(name: String, file_path: &str) {
@@ -135,7 +135,7 @@ fn check_file(file_path: String) {
 fn main() { 
     let args: Vec<String> = std::env::args().skip(1).collect();
     let str_args: Vec<&str> = args.iter().map(|v| &v[..]).collect();
-    let config_file_path: String = format!("{}/.done.toml", home_dir().unwrap().to_str().unwrap().to_string());
+    let config_file_path: String = format!("{}/.done.toml", home_dir().unwrap().to_str().unwrap());
 
     check_file(config_file_path.to_owned());
     check_date(config_file_path.to_owned());
