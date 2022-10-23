@@ -137,7 +137,7 @@ fn main() {
             match finish_task(&mut config) {
                 Ok(new_conf) => {
                     write_config(&config_file_path, new_conf);
-                    println!("Task {} finished", new_conf.done.first().unwrap());
+                    println!("Task {} finished", new_conf.done.last().unwrap());
                 },
                 Err(msg) => eprintln!("{}", msg)
             }
